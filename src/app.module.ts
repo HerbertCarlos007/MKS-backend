@@ -6,8 +6,9 @@ import { join } from 'path';
 import { AuthModule } from './modules/auth/auth.module';
 import { AuthService } from './app/services/auth/auth.service';
 import { AuthController } from './app/controllers/auth.controller';
-import { UsersService } from './app/services/user/users.service';
-import { JwtModule, JwtService } from '@nestjs/jwt';
+import { JwtService } from '@nestjs/jwt';
+import { MoviesModule } from './modules/movies/movies.module';
+import { MoviesController } from './app/controllers/movies.controller';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { JwtModule, JwtService } from '@nestjs/jwt';
     } as TypeOrmModuleOptions),
     UsersModule,
     AuthModule,
+    MoviesModule,
 
   ],
   providers: [AuthService, JwtService],

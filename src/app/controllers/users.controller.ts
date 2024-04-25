@@ -8,9 +8,7 @@ import { AuthGuard } from '@nestjs/passport';
 @UseGuards(AuthGuard('jwt'))
 export class UsersController {
 
-    constructor(private readonly userService: UsersService) {
-
-    }
+    constructor(private readonly userService: UsersService) {}
 
     @Get()
     async index() {
