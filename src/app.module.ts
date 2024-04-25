@@ -1,8 +1,13 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm'
-import { UsersModule } from './modules/users.module';
+import { UsersModule } from './modules/user/users.module';
 import { join } from 'path';
+import { AuthModule } from './modules/auth/auth.module';
+import { AuthService } from './app/services/auth/auth.service';
+import { AuthController } from './app/controllers/auth.controller';
+import { UsersService } from './app/services/user/users.service';
+import { JwtModule, JwtService } from '@nestjs/jwt';
 
 @Module({
   imports: [
@@ -17,7 +22,11 @@ import { join } from 'path';
       entities: [join(__dirname, '**', '*.entity.{ts,js}')],
       synchronize: true,
     } as TypeOrmModuleOptions),
-    UsersModule
+    UsersModule,
+    AuthModule,
+
   ],
+  providers: [AuthService, JwtService],
+  controllers: [AuthController],
 })
 export class AppModule { }
