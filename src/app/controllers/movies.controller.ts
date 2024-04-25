@@ -3,7 +3,10 @@ import { MoviesService } from '../services/movies/movies.service';
 import { AuthGuard } from '@nestjs/passport';
 import { CreateMovieDto } from '../dto/movie/create-movie.dto';
 import { UpdateMovieDto } from '../dto/movie/update-movie.dto';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
+@ApiBearerAuth() 
+@ApiTags('movies')
 @Controller('movies')
 @UseGuards(AuthGuard('jwt'))
 export class MoviesController {

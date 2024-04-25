@@ -8,20 +8,20 @@ import { AuthService } from './app/services/auth/auth.service';
 import { AuthController } from './app/controllers/auth.controller';
 import { JwtService } from '@nestjs/jwt';
 import { MoviesModule } from './modules/movies/movies.module';
-import { MoviesController } from './app/controllers/movies.controller';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-      type: process.env.TYPEORM_CONNECTION,
+      type: 'postgres',
       host: process.env.TYPEORM_HOST,
-      port: process.env.TYPEORM_PORT,
+      port: Number(process.env.TYPEORM_PORT),
       username: process.env.TYPEORM_USERNAME,
-      password: process.env.TYPEORM_PASSOWRD,
+      password: process.env.TYPEORM_PASSWORD,
       database: process.env.TYPEORM_DATABASE,
       entities: [join(__dirname, '**', '*.entity.{ts,js}')],
       synchronize: true,
+      
     } as TypeOrmModuleOptions),
     UsersModule,
     AuthModule,

@@ -3,14 +3,17 @@ import { UsersService } from '../services/user/users.service';
 import { CreateUserDto } from '../dto/user/create-user.dto';
 import { UpdateUserDto } from '../dto/user/update-user.dto';
 import { AuthGuard } from '@nestjs/passport';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
+@ApiBearerAuth() 
+@ApiTags('users')
 @Controller('users')
-@UseGuards(AuthGuard('jwt'))
 export class UsersController {
 
     constructor(private readonly userService: UsersService) {}
 
     @Get()
+    @UseGuards(AuthGuard('jwt'))
     async index() {
         return await this.userService.findAll()
     }
@@ -21,6 +24,7 @@ export class UsersController {
     }
 
     @Get(':id')
+    @UseGuards(AuthGuard('jwt'))
     async findOne(@Param('id', new ParseUUIDPipe) id: string) {
         return await this.userService.findOne({
             where: { id }
@@ -28,11 +32,13 @@ export class UsersController {
     }
 
     @Put(':id')
+    @UseGuards(AuthGuard('jwt'))
     async update(@Param('id', new ParseUUIDPipe) id: string, @Body() body: UpdateUserDto) {
         return await this.userService.update(id, body)
     }
 
     @Delete(':id')
+    @UseGuards(AuthGuard('jwt'))
     @HttpCode(HttpStatus.NO_CONTENT)
     async delete(@Param('id', new ParseUUIDPipe) id: string) {
         await this.userService.destroy(id)
