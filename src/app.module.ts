@@ -28,7 +28,7 @@ import { redisStore } from 'cache-manager-redis-yet';
     CacheModule.register({
       ttl: 300000,
       store: redisStore,
-      host: 'localhost',
+      host: process.env.REDIS_HOST,
       port: process.env.PORT_REDIS
     }),
     TypeOrmModule.forRoot(typeOrmConfig),
