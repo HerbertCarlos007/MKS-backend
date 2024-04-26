@@ -37,10 +37,9 @@ exports.AppModule = AppModule = __decorate([
             movies_module_1.MoviesModule,
             typeorm_1.TypeOrmModule.forRoot(typeorm_config_1.default),
             cache_manager_1.CacheModule.register({
-                ttl: 300,
+                ttl: 100,
                 store: cache_manager_redis_yet_1.redisStore,
-                host: process.env.REDIS_HOST,
-                port: process.env.REDIS_PORT,
+                port: 6379
             }),
         ],
         providers: [auth_service_1.AuthService, jwt_1.JwtService,
