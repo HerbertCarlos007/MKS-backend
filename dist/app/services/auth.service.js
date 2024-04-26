@@ -22,7 +22,7 @@ let AuthService = class AuthService {
     async login(user) {
         const payload = { sub: user.id, email: user.email };
         return {
-            token: this.jwtService.signAsync(payload, { expiresIn: '10m', privateKey: process.env.JWT_SECRET_KEY })
+            token: this.jwtService.sign(payload, { expiresIn: '60m', privateKey: process.env.JWT_SECRET_KEY })
         };
     }
     async validateUser(email, password) {

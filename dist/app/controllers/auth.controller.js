@@ -39,6 +39,7 @@ __decorate([
             required: ['email', 'password'],
         },
     }),
+    openapi.ApiResponse({ status: 201 }),
     __param(0, (0, common_1.Req)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
