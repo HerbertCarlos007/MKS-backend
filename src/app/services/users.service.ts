@@ -1,9 +1,11 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { FindOneOptions, Repository } from 'typeorm';
-import { UserEntity } from '../../interfaces/users.entity';
+import { UserEntity } from '../interfaces/users.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreateUserDto } from '../../dto/user/create-user.dto';
-import { UpdateUserDto } from '../../dto/user/update-user.dto';
+import { CreateUserDto } from '../dto/create-user.dto';
+import { UpdateUserDto } from '../dto/update-user.dto';
+
+
 
 @Injectable()
 export class UsersService {
@@ -11,16 +13,18 @@ export class UsersService {
         @InjectRepository(UserEntity)
         private readonly userRepository: Repository<UserEntity>,
     ) { }
-    
+
     async store(data: CreateUserDto) {
         const user = this.userRepository.create(data)
         return await this.userRepository.save(user)
     }
 
     async findAll() {
-        return await this.userRepository.find({
+        const users = await this.userRepository.find({
             select: ['id', 'name', 'email']
         })
+        console.log('from database')
+        return users
     }
 
     async findOne(options: FindOneOptions<UserEntity>) {
@@ -31,19 +35,19 @@ export class UsersService {
         }
     }
 
-   async update(id: string, data: UpdateUserDto) {
-    const user = await this.userRepository.findOneOrFail({
-        where: {id}
-    })
-    
-    this.userRepository.merge(user, data)
-    return await this.userRepository.save(user)
-   }
-    
+    async update(id: string, data: UpdateUserDto) {
+        const user = await this.userRepository.findOneOrFail({
+            where: { id }
+        })
+
+        this.userRepository.merge(user, data)
+        return await this.userRepository.save(user)
+    }
+
     async destroy(id: string) {
         await this.userRepository.findOneOrFail({
-            where: {id}
+            where: { id }
         })
-        this.userRepository.softDelete({id})
-     }
+        this.userRepository.softDelete({ id })
+    }
 }

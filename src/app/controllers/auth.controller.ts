@@ -1,6 +1,6 @@
 import { Controller, Post, Req, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { AuthService } from '../services/auth/auth.service';
+import { AuthService } from '../services/auth.service';
 import { ApiBody, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('login')

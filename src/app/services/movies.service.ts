@@ -1,7 +1,7 @@
 import { Injectable, NotAcceptableException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreateMovieDto } from 'src/app/dto/movie/create-movie.dto';
-import { UpdateMovieDto } from 'src/app/dto/movie/update-movie.dto';
+import { CreateMovieDto } from 'src/app/dto/create-movie.dto';
+import { UpdateMovieDto } from 'src/app/dto/update-movie.dto';
 import { MovieEntity } from 'src/app/interfaces/movies.entity';
 import { FindOneOptions, Repository } from 'typeorm';
 
