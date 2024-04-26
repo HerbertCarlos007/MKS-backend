@@ -18,7 +18,7 @@ export class AuthController {
                 email: { type: 'string' },
                 password: { type: 'string', format: 'password' },
             },
-            required: ['username', 'password'],
+            required: ['email', 'password'],
         },
     })
     async login(@Req() req: any) {

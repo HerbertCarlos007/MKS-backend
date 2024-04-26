@@ -12,7 +12,7 @@ export class AuthService {
         const payload = { sub: user.id, email: user.email }
         
         return {
-            token: this.jwtService.sign(payload, {expiresIn: '10m',privateKey: process.env.JWT_SECRET_KEY })
+            token: this.jwtService.signAsync(payload, {expiresIn: '10m',privateKey: process.env.JWT_SECRET_KEY })
         }
     
     }
@@ -26,10 +26,15 @@ export class AuthService {
         } catch (error) {
             return null
         }
-
+    
+        if (!user) {
+            return { valid: false }
+        }
+    
         const isPasswordValid = compareSync(password, user.password)
         if (!isPasswordValid) return null
-
+    
         return user
     }
+    
 }
