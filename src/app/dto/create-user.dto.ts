@@ -1,7 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsEmail, IsNotEmpty, Matches } from "class-validator";
-import { MessageHelper } from "src/helpers/messages.helper";
-import { RegexHelper } from "src/helpers/regex.helper";
+import { MessageHelper } from "../../helpers/messages.helper";
+import { RegexHelper } from "../../helpers/regex.helper";
 
 export class CreateUserDto {
     @ApiProperty({
