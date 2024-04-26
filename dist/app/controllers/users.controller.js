@@ -24,9 +24,6 @@ let UsersController = class UsersController {
     constructor(userService) {
         this.userService = userService;
     }
-    async hello() {
-        return 'hello world';
-    }
     async index() {
         return await this.userService.findAll();
     }
@@ -46,13 +43,6 @@ let UsersController = class UsersController {
     }
 };
 exports.UsersController = UsersController;
-__decorate([
-    (0, common_1.Get)('/hello'),
-    openapi.ApiResponse({ status: 200, type: String }),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
-], UsersController.prototype, "hello", null);
 __decorate([
     (0, common_1.Get)(),
     (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),

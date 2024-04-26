@@ -1,73 +1,76 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+<!DOCTYPE html>
+<html lang="en">
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Filmes</title>
+    
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+        h1 {
+            color: #333;
+        }
 
-## Description
+        h2 {
+            color: #555;
+        }
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+        p {
+            color: #777;
+        }
 
-## Installation
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
 
-```bash
-$ npm install
-```
+        ol {
+            margin-left: 20px;
+        }
 
-## Running the app
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
 
-```bash
-# development
-$ npm run start
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    
+</head>
 
-# watch mode
-$ npm run start:dev
+<body>
+    <h1>Catálogo de Filmes</h1>
+    <p>Este é um projeto de catálogo de filmes desenvolvido com NestJS, Redis, MySQL, Docker, TypeScript, JWT, TypeORM e Swagger.</p>
 
-# production mode
-$ npm run start:prod
-```
 
-## Test
+    <h2>Configuração</h2>
+    <ol>
+        <li>Clone o repositório: <code>git clone https://github.com/HerbertCarlos007/MKS-backend</code></li>
+        <li>Instale as dependências: <code>npm install</code></li>
+        <li>Copie o arquivo de variáveis de ambiente de exemplo: <code>cp .env.example .env</code></li>
+        <li>Preencha as variáveis de ambiente no arquivo <code>.env</code> conforme necessário.</li>
+    </ol>
 
-```bash
-# unit tests
-$ npm run test
+    <h2>Execução</h2>
+    <ol>
+        <li>Inicie o ambiente Docker Compose: <code>docker-compose up</code></li>
+        <li>Execute a aplicação em modo de desenvolvimento: <code>npm run start:dev</code></li>
+    </ol>
 
-# e2e tests
-$ npm run test:e2e
+    <h2>Uso</h2>
+    <p>Acesse a documentação da API no Swagger em <a href="http://localhost:8080/api"></a> para ver os endpoints disponíveis e experimentá-los.</p>
 
-# test coverage
-$ npm run test:cov
-```
+   
+</body>
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+</html>

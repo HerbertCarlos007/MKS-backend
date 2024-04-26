@@ -4,7 +4,6 @@ import { UpdateUserDto } from '../dto/update-user.dto';
 export declare class UsersController {
     private readonly userService;
     constructor(userService: UsersService);
-    hello(): Promise<string>;
     index(): Promise<import("../interfaces/users.entity").UserEntity[]>;
     store(body: CreateUserDto): Promise<import("../interfaces/users.entity").UserEntity>;
     findOne(id: string): Promise<import("../interfaces/users.entity").UserEntity>;
