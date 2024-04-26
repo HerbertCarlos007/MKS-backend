@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    environment:
+        MYSQL_ROOT_PASSWORD: 41568106hB
+        MYSQL_DATABASE: u379300444_database_herbe
+        MYSQL_USER: u379300444_herbert_carlos
+        MYSQL_PASSWORD: 41568106hB
+    ports:
+      - "3306:3306"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
