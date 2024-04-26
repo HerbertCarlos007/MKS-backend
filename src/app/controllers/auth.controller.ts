@@ -23,5 +23,7 @@ export class AuthController {
     })
     async login(@Req() req: any) {
         return await this.authService.login(req.user)
+        console.log
+        
     }
 }

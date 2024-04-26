@@ -24,6 +24,7 @@ let AuthController = class AuthController {
     }
     async login(req) {
         return await this.authService.login(req.user);
+        console.log;
     }
 };
 exports.AuthController = AuthController;
