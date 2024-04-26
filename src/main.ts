@@ -8,6 +8,8 @@ async function bootstrap() {
   dotenv.config({
     path: '.env'
   })
+  
+  console.log(process.env.TYPEORM_HOST);
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
