@@ -19,7 +19,7 @@ import { UsersController } from './app/controllers/users.controller';
     AuthModule,
     MoviesModule,
     TypeOrmModule.forRoot({
-      type: process.env.TYPEORM_CONNECTION,
+      type: 'mysql',
       host: process.env.TYPEORM_HOST,
       port: Number(process.env.TYPEORM_PORT),
       username: process.env.TYPEORM_USERNAME,

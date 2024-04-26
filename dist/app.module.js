@@ -30,7 +30,7 @@ exports.AppModule = AppModule = __decorate([
             auth_module_1.AuthModule,
             movies_module_1.MoviesModule,
             typeorm_1.TypeOrmModule.forRoot({
-                type: process.env.TYPEORM_CONNECTION,
+                type: 'mysql',
                 host: process.env.TYPEORM_HOST,
                 port: Number(process.env.TYPEORM_PORT),
                 username: process.env.TYPEORM_USERNAME,
