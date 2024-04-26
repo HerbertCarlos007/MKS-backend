@@ -1,3 +1,4 @@
+
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { join } from 'path';
 import * as dotenv from 'dotenv';
@@ -7,11 +8,11 @@ dotenv.config();
 // As configs não estão funcionando quando está funcionando no .env
 const config: TypeOrmModuleOptions = {
   type: 'mysql',
-  host: 'srv887.hstgr.io',
-  port: 3306,
-  username: 'u379300444_herbert_carlos',
-  password: '41568106hB',
-  database: 'u379300444_database_herbe',
+  host: process.env.TYPEORM_HOST,
+  port: Number(process.env.TYPEORM_PORT),
+  username: process.env.TYPEORM_USERNAME,
+  password: process.env.TYPEORM_PASSWORD,
+  database: process.env.TYPEORM_DATABASE,
   entities: [join(__dirname, '**', '*.entity.{ts,js}')],
   synchronize: true,
 };
