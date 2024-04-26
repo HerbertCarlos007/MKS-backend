@@ -12,6 +12,8 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
 import { MoviesController } from './app/controllers/movies.controller';
 import { UsersController } from './app/controllers/users.controller';
 import typeOrmConfig from './app/typeorm.config';
+import { CacheModule } from '@nestjs/cache-manager';
+import { redisStore } from 'cache-manager-redis-yet';
 
 @Module({
   imports: [
@@ -23,6 +25,12 @@ import typeOrmConfig from './app/typeorm.config';
     UsersModule,
     AuthModule,
     MoviesModule,
+    CacheModule.register({
+      ttl: 300000,
+      store: redisStore,
+      host: 'localhost',
+      port: 6379
+    }),
     TypeOrmModule.forRoot(typeOrmConfig),
     
   
