@@ -25,17 +25,20 @@ exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            config_1.ConfigModule.forRoot(),
+            config_1.ConfigModule.forRoot({
+                isGlobal: true,
+                envFilePath: '.env',
+            }),
             users_module_1.UsersModule,
             auth_module_1.AuthModule,
             movies_module_1.MoviesModule,
             typeorm_1.TypeOrmModule.forRoot({
                 type: 'mysql',
-                host: 'srv887.hstgr.io',
-                port: 3306,
-                username: 'u379300444_herbert_carlos',
-                password: '41568106hB',
-                database: 'u379300444_database_herbe',
+                host: process.env.TYPEORM_HOST,
+                port: Number(process.env.TYPEORM_PORT),
+                username: process.env.TYPEORM_USERNAME,
+                password: process.env.TYPEORM_PASSWORD,
+                database: process.env.TYPEORM_DATABASE,
                 entities: [(0, path_1.join)(__dirname, '**', '*.entity.{ts,js}')],
                 synchronize: true,
             }),
