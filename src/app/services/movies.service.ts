@@ -1,8 +1,8 @@
 import { Injectable, NotAcceptableException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreateMovieDto } from 'src/app/dto/create-movie.dto';
-import { UpdateMovieDto } from 'src/app/dto/update-movie.dto';
-import { MovieEntity } from 'src/app/interfaces/movies.entity';
+import { CreateMovieDto } from '../dto/create-movie.dto';
+import { UpdateMovieDto } from  '../dto/update-movie.dto';
+import { MovieEntity } from '../interfaces/movies.entity';
 import { FindOneOptions, Repository } from 'typeorm';
 
 @Injectable()
