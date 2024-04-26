@@ -13,8 +13,6 @@ import { redisStore } from 'cache-manager-redis-yet';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { MoviesController } from './app/controllers/movies.controller';
 import { UsersController } from './app/controllers/users.controller';
-import { MoviesService } from './app/services/movies.service';
-import { UsersService } from './app/services/users.service';
 
 @Module({
   imports: [
