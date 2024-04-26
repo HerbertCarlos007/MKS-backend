@@ -14,7 +14,9 @@ import { UsersController } from './app/controllers/users.controller';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     UsersModule,
     AuthModule,
     MoviesModule,
