@@ -19,7 +19,7 @@ import { UsersController } from './app/controllers/users.controller';
     AuthModule,
     MoviesModule,
     TypeOrmModule.forRoot({
-      type: 'postgres',
+      type: process.env.TYPEORM_CONNECTION,
       host: process.env.TYPEORM_HOST,
       port: Number(process.env.TYPEORM_PORT),
       username: process.env.TYPEORM_USERNAME,
