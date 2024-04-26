@@ -7,6 +7,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
   dotenv.config({
     path: '.env'
+    
   })
   
   console.log(process.env.TYPEORM_HOST);
