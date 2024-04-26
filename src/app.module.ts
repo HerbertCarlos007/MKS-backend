@@ -11,6 +11,7 @@ import { MoviesModule } from './modules/movies.module';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { MoviesController } from './app/controllers/movies.controller';
 import { UsersController } from './app/controllers/users.controller';
+import typeOrmConfig from './app/typeorm.config';
 
 @Module({
   imports: [
@@ -22,16 +23,7 @@ import { UsersController } from './app/controllers/users.controller';
     UsersModule,
     AuthModule,
     MoviesModule,
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: process.env.TYPEORM_HOST,
-      port: Number(process.env.TYPEORM_PORT),
-      username: process.env.TYPEORM_USERNAME,
-      password: process.env.TYPEORM_PASSWORD,
-      database: process.env.TYPEORM_DATABASE,
-      entities: [join(__dirname, '**', '*.entity.{ts,js}')],
-      synchronize: true,
-    }),
+    TypeOrmModule.forRoot(typeOrmConfig),
     
   
   ],

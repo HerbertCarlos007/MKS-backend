@@ -11,7 +11,6 @@ const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
 const typeorm_1 = require("@nestjs/typeorm");
 const users_module_1 = require("./modules/users.module");
-const path_1 = require("path");
 const auth_module_1 = require("./modules/auth.module");
 const auth_service_1 = require("./app/services/auth.service");
 const auth_controller_1 = require("./app/controllers/auth.controller");
@@ -19,6 +18,7 @@ const jwt_1 = require("@nestjs/jwt");
 const movies_module_1 = require("./modules/movies.module");
 const movies_controller_1 = require("./app/controllers/movies.controller");
 const users_controller_1 = require("./app/controllers/users.controller");
+const typeorm_config_1 = require("./app/typeorm.config");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -32,16 +32,7 @@ exports.AppModule = AppModule = __decorate([
             users_module_1.UsersModule,
             auth_module_1.AuthModule,
             movies_module_1.MoviesModule,
-            typeorm_1.TypeOrmModule.forRoot({
-                type: 'mysql',
-                host: process.env.TYPEORM_HOST,
-                port: Number(process.env.TYPEORM_PORT),
-                username: process.env.TYPEORM_USERNAME,
-                password: process.env.TYPEORM_PASSWORD,
-                database: process.env.TYPEORM_DATABASE,
-                entities: [(0, path_1.join)(__dirname, '**', '*.entity.{ts,js}')],
-                synchronize: true,
-            }),
+            typeorm_1.TypeOrmModule.forRoot(typeorm_config_1.default),
         ],
         providers: [auth_service_1.AuthService, jwt_1.JwtService,
         ],
