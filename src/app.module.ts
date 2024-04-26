@@ -28,9 +28,6 @@ import { redisStore } from 'cache-manager-redis-yet';
     TypeOrmModule.forRoot(typeOrmConfig),
     CacheModule.register({
       ttl: 300000,
-      store: redisStore,
-      host: 'localhost',
-      port: 6379
     }),
   ],
   providers: [AuthService, JwtService,

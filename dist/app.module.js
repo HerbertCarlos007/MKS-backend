@@ -21,7 +21,6 @@ const movies_controller_1 = require("./app/controllers/movies.controller");
 const users_controller_1 = require("./app/controllers/users.controller");
 const typeorm_config_1 = require("./app/typeorm.config");
 const cache_manager_1 = require("@nestjs/cache-manager");
-const cache_manager_redis_yet_1 = require("cache-manager-redis-yet");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -38,9 +37,6 @@ exports.AppModule = AppModule = __decorate([
             typeorm_1.TypeOrmModule.forRoot(typeorm_config_1.default),
             cache_manager_1.CacheModule.register({
                 ttl: 300000,
-                store: cache_manager_redis_yet_1.redisStore,
-                host: 'localhost',
-                port: 6379
             }),
         ],
         providers: [auth_service_1.AuthService, jwt_1.JwtService,
