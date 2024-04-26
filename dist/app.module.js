@@ -16,9 +16,12 @@ const auth_service_1 = require("./app/services/auth.service");
 const auth_controller_1 = require("./app/controllers/auth.controller");
 const jwt_1 = require("@nestjs/jwt");
 const movies_module_1 = require("./modules/movies.module");
+const core_1 = require("@nestjs/core");
 const movies_controller_1 = require("./app/controllers/movies.controller");
 const users_controller_1 = require("./app/controllers/users.controller");
 const typeorm_config_1 = require("./app/typeorm.config");
+const cache_manager_1 = require("@nestjs/cache-manager");
+const cache_manager_redis_yet_1 = require("cache-manager-redis-yet");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -33,8 +36,18 @@ exports.AppModule = AppModule = __decorate([
             auth_module_1.AuthModule,
             movies_module_1.MoviesModule,
             typeorm_1.TypeOrmModule.forRoot(typeorm_config_1.default),
+            cache_manager_1.CacheModule.register({
+                ttl: 300,
+                store: cache_manager_redis_yet_1.redisStore,
+                host: process.env.REDIS_HOST,
+                port: process.env.REDIS_PORT,
+            }),
         ],
         providers: [auth_service_1.AuthService, jwt_1.JwtService,
+            {
+                provide: core_1.APP_INTERCEPTOR,
+                useClass: cache_manager_1.CacheInterceptor
+            }
         ],
         controllers: [auth_controller_1.AuthController, movies_controller_1.MoviesController, users_controller_1.UsersController],
     })

@@ -27,10 +27,11 @@ import { redisStore } from 'cache-manager-redis-yet';
     MoviesModule,
     TypeOrmModule.forRoot(typeOrmConfig),
     CacheModule.register({
-      ttl: 300000,
+      ttl: 300,
       store: redisStore,
       host: process.env.REDIS_HOST,
-      port: process.env.PORT_REDIS
+      port: process.env.REDIS_PORT,
+  
     }),
   ],
   providers: [AuthService, JwtService,
