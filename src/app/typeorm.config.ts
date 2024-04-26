@@ -6,6 +6,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 // As configs não estão funcionando quando está funcionando quando o uso o process.env
+// Usei o mysql, por que eu nao tinha um banco remoto do postgres
 const config: TypeOrmModuleOptions = {
   type: 'mysql',
   host: 'srv887.hstgr.io',
