@@ -37,8 +37,9 @@ exports.AppModule = AppModule = __decorate([
             movies_module_1.MoviesModule,
             typeorm_1.TypeOrmModule.forRoot(typeorm_config_1.default),
             cache_manager_1.CacheModule.register({
-                ttl: 100,
+                ttl: 300000,
                 store: cache_manager_redis_yet_1.redisStore,
+                host: 'localhost',
                 port: 6379
             }),
         ],
