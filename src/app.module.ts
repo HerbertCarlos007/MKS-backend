@@ -16,7 +16,7 @@ import { UsersController } from './app/controllers/users.controller';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: join(process.cwd(), 'env', `.env.${process.env.SCOPE.trim()}`),
+      envFilePath:'.env',
   
     }),
     UsersModule,
