@@ -5,7 +5,9 @@ import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
-  dotenv.config()
+  dotenv.config({
+    path: '.env'
+  })
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
