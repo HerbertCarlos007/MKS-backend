@@ -20,6 +20,8 @@ const movies_module_1 = require("./modules/movies.module");
 const cache_manager_1 = require("@nestjs/cache-manager");
 const cache_manager_redis_yet_1 = require("cache-manager-redis-yet");
 const core_1 = require("@nestjs/core");
+const movies_controller_1 = require("./app/controllers/movies.controller");
+const users_controller_1 = require("./app/controllers/users.controller");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -53,7 +55,7 @@ exports.AppModule = AppModule = __decorate([
                 useClass: cache_manager_1.CacheInterceptor
             }
         ],
-        controllers: [auth_controller_1.AuthController],
+        controllers: [auth_controller_1.AuthController, movies_controller_1.MoviesController, users_controller_1.UsersController],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map
