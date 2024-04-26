@@ -16,7 +16,8 @@ import { UsersController } from './app/controllers/users.controller';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '.env'
+      envFilePath:'.env',
+  
     }),
     UsersModule,
     AuthModule,
