@@ -12,7 +12,7 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
 import { MoviesController } from './app/controllers/movies.controller';
 import { UsersController } from './app/controllers/users.controller';
 import typeOrmConfig from './app/typeorm.config';
-import { CacheModule } from '@nestjs/cache-manager';
+import { CacheInterceptor, CacheModule } from '@nestjs/cache-manager';
 import { redisStore } from 'cache-manager-redis-yet';
 
 @Module({
@@ -29,14 +29,17 @@ import { redisStore } from 'cache-manager-redis-yet';
       ttl: 300000,
       store: redisStore,
       host: 'localhost',
-      port: 6379
+      port: process.env.PORT_REDIS
     }),
     TypeOrmModule.forRoot(typeOrmConfig),
     
   
   ],
   providers: [AuthService, JwtService,
-    
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: CacheInterceptor
+    }
   ],
   controllers: [AuthController, MoviesController, UsersController],
 })
