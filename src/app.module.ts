@@ -27,15 +27,15 @@ import { UsersController } from './app/controllers/users.controller';
       port: 6379
     }),
     TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: process.env.TYPEORM_HOST,
-      port: Number(process.env.TYPEORM_PORT),
-      username: process.env.TYPEORM_USERNAME,
-      password: process.env.TYPEORM_PASSWORD,
-      database: process.env.TYPEORM_DATABASE,
+      type: 'mysql',
+      host: 'srv887.hstgr.io',
+      port: 3306,
+      username: 'u379300444_herbert_carlos',
+      password: '41568106hB',
+      database: 'u379300444_database_herbe',
       entities: [join(__dirname, '**', '*.entity.{ts,js}')],
       synchronize: true,
-    } as TypeOrmModuleOptions),
+    } ),
     
   
   ],
