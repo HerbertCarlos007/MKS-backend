@@ -8,8 +8,6 @@ import { AuthService } from './app/services/auth.service';
 import { AuthController } from './app/controllers/auth.controller';
 import { JwtService } from '@nestjs/jwt';
 import { MoviesModule } from './modules/movies.module';
-import { CacheInterceptor } from '@nestjs/cache-manager';
-
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { MoviesController } from './app/controllers/movies.controller';
 import { UsersController } from './app/controllers/users.controller';
@@ -21,20 +19,20 @@ import { UsersController } from './app/controllers/users.controller';
     AuthModule,
     MoviesModule,
     TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'srv887.hstgr.io',
-      port: 3306,
-      username: 'u379300444_herbert_carlos',
-      password: '41568106hB',
-      database: 'u379300444_database_herbe',
+      type: 'postgres',
+      host: process.env.TYPEORM_HOST,
+      port: Number(process.env.TYPEORM_PORT),
+      username: process.env.TYPEORM_USERNAME,
+      password: process.env.TYPEORM_PASSWORD,
+      database: process.env.TYPEORM_DATABASE,
       entities: [join(__dirname, '**', '*.entity.{ts,js}')],
       synchronize: true,
-    } ),
+    } as TypeOrmModuleOptions),
     
   
   ],
   providers: [AuthService, JwtService,
-  
+    
   ],
   controllers: [AuthController, MoviesController, UsersController],
 })
