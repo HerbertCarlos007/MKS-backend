@@ -19,21 +19,19 @@ import { redisStore } from 'cache-manager-redis-yet';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath:'.env',
-  
+      envFilePath: '.env',
+
     }),
     UsersModule,
     AuthModule,
     MoviesModule,
+    TypeOrmModule.forRoot(typeOrmConfig),
     CacheModule.register({
       ttl: 300000,
       store: redisStore,
       host: process.env.REDIS_HOST,
       port: process.env.PORT_REDIS
     }),
-    TypeOrmModule.forRoot(typeOrmConfig),
-    
-  
   ],
   providers: [AuthService, JwtService,
     {
