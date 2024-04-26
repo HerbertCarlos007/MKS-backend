@@ -15,6 +15,9 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
 @Module({
   imports: [
     ConfigModule.forRoot(),
+    UsersModule,
+    AuthModule,
+    MoviesModule,
     CacheModule.register({
       ttl: 300000,
       store: redisStore,
@@ -31,9 +34,7 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
       entities: [join(__dirname, '**', '*.entity.{ts,js}')],
       synchronize: true,
     } as TypeOrmModuleOptions),
-    UsersModule,
-    AuthModule,
-    MoviesModule,
+    
   
   ],
   providers: [AuthService, JwtService, 
